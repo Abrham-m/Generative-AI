@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 module.exports = () => {
   try {
     // DB url must be from atlas that is from process.env...
-    mongoose.connect("mongodb://127.0.0.1:27017/test", {}).then(() => {
+    mongoose.connect("mongodb://127.0.0.1:27017/Auth", {}).then(() => {
       console.log("Database Connection Established...!");
     });
   } catch (error) {
