@@ -1,7 +1,9 @@
 import LoginForm from "./Components/Login";
+import Registration from "./Components/Registration";
 function App() {
   return (
-    <div className="bg-cyan-100">
+    <div >
+      <Registration/>
       <LoginForm />
     </div>
   );
