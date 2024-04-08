@@ -1,6 +1,31 @@
 import React from "react";
-
+import { useState } from "react";
+import { ToastContainer, toast, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Registration = () => {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSubmit = () => {
+    if (password !== confirmPassword) {
+      alert(`Password didn't match`);
+    } else {
+      toast.success(
+        "Registration complete! You can now login and explore all the exciting content on our website.",
+        {
+          position: "bottom-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Zoom,
+        }
+      );
+    }
+  };
   return (
     <div className="min-h-screen min-w-screen bg-gray-900 flex justify-center items-center px-5 py-5">
       <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full max-w-2xl overflow-hidden">
@@ -15,6 +40,7 @@ const Registration = () => {
               <input
                 type="text"
                 className="w-full pl-3 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                required
               />
             </div>
             <div className="w-1/2 flex flex-col mx-10">
@@ -22,6 +48,7 @@ const Registration = () => {
               <input
                 type="text"
                 className="w-full pl-3 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                required
               />
             </div>
           </div>
@@ -31,6 +58,7 @@ const Registration = () => {
               <input
                 type="email"
                 className="w-full max-w-60 pl-3 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                required
               />
             </div>
           </div>
@@ -40,6 +68,9 @@ const Registration = () => {
               <input
                 type="text"
                 className="w-full pl-3 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
             <div className="w-1/2 flex flex-col mx-10">
@@ -49,15 +80,23 @@ const Registration = () => {
               <input
                 type="text"
                 className="w-full pl-3 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
               />
             </div>
           </div>
           <div className="w-full flex ">
-            <button className="w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">
+            <button
+              className="w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
+              onClick={handleSubmit}
+            >
               REGISTER NOW
             </button>
           </div>
         </div>
+        <div></div>
+        <ToastContainer />
       </div>
     </div>
   );
