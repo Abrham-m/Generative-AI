@@ -2,30 +2,30 @@ import React from "react";
 import { useState } from "react";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+
 const Registration = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = () => {
-    if (password !== confirmPassword) {
-      alert(`Password didn't match`);
-    } else {
-      toast.success(
-        "Registration complete! You can now login and explore all the exciting content on our website.",
-        {
-          position: "bottom-center",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Zoom,
-        }
-      );
-    }
+   const toastNotify = (fieldName) => {
+  toast.error(`fill the ${fieldName} input field`);
   };
+
+  const validator = () => {
+    if (firstName === "") toastNotify("first Name");
+    else if (lastName === "") toastNotify("last Name");
+    else if (email === "") toastNotify("email");
+    else if (password === "") toastNotify("password");
+    else if (password !== confirmPassword) toast.error(`Password didn't match`);
+    else toast.success(
+      "Registration complete! You can now login and explore all the exciting content on our website."
+    );
+  };
+
   return (
     <div className="min-h-screen min-w-screen bg-gray-900 flex justify-center items-center px-5 py-5">
       <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full max-w-2xl overflow-hidden">
@@ -39,7 +39,9 @@ const Registration = () => {
               <label className="text-xs font-bold px-1 py-1">First Name</label>
               <input
                 type="text"
+                value={firstName}
                 className="w-full pl-3 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                onChange={(e) => setFirstName(e.target.value)}
                 required
               />
             </div>
@@ -47,7 +49,9 @@ const Registration = () => {
               <label className="text-xs font-bold px-1 py-1">Last Name</label>
               <input
                 type="text"
+                value={lastName}
                 className="w-full pl-3 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                onChange={(e) => setLastName(e.target.value)}
                 required
               />
             </div>
@@ -57,7 +61,9 @@ const Registration = () => {
               <label className="text-xs font-bold px-1 py-1">Email</label>
               <input
                 type="email"
+                value={email}
                 className="w-full max-w-60 pl-3 pr-3 py-1 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500"
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -88,18 +94,37 @@ const Registration = () => {
           </div>
           <div className="w-full flex ">
             <button
+              type="submit"
               className="w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
-              onClick={handleSubmit}
+              onClick={validator}
             >
               REGISTER NOW
             </button>
           </div>
         </div>
-        <div></div>
-        <ToastContainer />
+        <div>
+          {firstName}
+          {lastName}
+          {email}
+          {password}
+          
+        </div>
+        <ToastContainer
+          position="bottom-center"
+          autoClose="4000"
+          hideProgressBar="false"
+          theme="light"
+          closeOnClick="true"
+          pauseOnHover="true"
+          draggable="false"
+          transition={Zoom}
+          limit={1}
+        />
       </div>
     </div>
   );
 };
 
 export default Registration;
+
+
