@@ -1,65 +1,47 @@
 import React from "react";
 import AI from "../images/AI.png";
-import Typewriter from "typewriter-effect";
+import { LinearGradient } from "react-text-gradients";
 import { Link } from "react-router-dom";
-import Fade from "react-reveal/Zoom";
+import { Fade, Slide } from "react-awesome-reveal";
+import Nav from "./Nav";
+
 const Home = () => {
   return (
-    <div
-      className="bg-cover bg-center min-h-screen min-w-screen flex flex-row-reverse items-center"
-      style={{ backgroundImage: `url(${AI})` }}
-    >
-      <div className=" w-1/2 flex flex-col bg-indigo-300 relative bottom-10">
-        <div className=" text-3xl">
-          {" "}
-          <Typewriter
-            options={{
-              strings: ["Transform your ideas into"],
-              autoStart: true,
-              loop: true,
-            }}
-          />
-        </div>
-        <div className="text-3xl">
-          {" "}
-          <Typewriter
-            options={{
-              strings: ["breathtaking creations with"],
-              autoStart: true,
-              loop: true,
-              pauseFor: 3000,
-            }}
-          />
-        </div>
-        <div className="text-4xl font-bold">
-          {" "}
-          <Typewriter
-            options={{
-              strings: ["Generative AI"],
-              autoStart: true,
-              loop: false,
-            }}
-          />
-        </div>
-        <Fade>
-          {" "}
-          <div className="flex justify-evenly items-center relative right-10">
-            <Link
-              to="/login"
-              className="w-1/4 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Login
-            </Link>
-            <Link
-              to="/register"
-              className="w-1/4 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Register
-            </Link>
+    <>
+      <Nav />
+      <div
+        className="bg-cover bg-center min-h-screen min-w-screen flex flex-row-reverse items-center"
+        style={{ backgroundImage: `url(${AI})` }}
+      >
+        <div className=" w-1/2 flex flex-col relative bottom-10 overflow-x-hidden">
+          <div className="text-3xl mb-14">
+            <div className="mb-4">
+              <Fade cascade duration={250} delay={400}>
+                Enhance Your Creative Process
+              </Fade>
+            </div>
+            <div className="mb-4">
+              <Fade cascade duration={250} delay={4000}>
+                with Our Generative AI
+              </Fade>
+            </div>
           </div>
-        </Fade>
+
+          <Slide direction="right" delay={7000} duration={1500}>
+            <div className="flex items-center relative ml-5">
+              <Link
+                to="/login"
+                className="w-1/4 flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-blue_btn_color hover:bg-blue_btn_hover_color/[1] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blueness"
+              >
+                <LinearGradient gradient={["to left", "#17acff ,#ff68f0"]}>
+                  Get Started
+                </LinearGradient>
+              </Link>
+            </div>
+          </Slide>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
