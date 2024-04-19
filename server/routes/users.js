@@ -10,13 +10,11 @@ router.post("/", async (req, res) => {
 
     if (error) {
       return res.status(400).send({ message: error.details[0].message });
-      console.log(`case 1 ${error.details[0].message}`); // to be deleted
     }
     // check is the user already exists
     const user = await User.findOne({ email: req.body.email });
-    console.log(`case 2 ${user}`); // to be deleted
 
-    if (user) res.status(409).send("User with this email already exists");
+    if (user) res.status(409).send({message:"User with this email already exists"});
     else {
       // hash the plain text password
       const salt = await bcrypt.genSalt(Number(process.env.SALT));
@@ -30,10 +28,15 @@ router.post("/", async (req, res) => {
 
       // check if the document created
       if (newUser)
-        res.status(201).send({ message: "user created successfully" });
+        res
+          .status(201)
+          .send({
+            message:
+              " Registration complete! Now login and explore all the exciting content on our website.",
+          });
     }
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).send({message:error}); 
   }
 });
 
