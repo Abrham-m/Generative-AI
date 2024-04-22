@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        blueness: "#02645b",
+        greenish: "#015965",
+        blue_btn_color: "rgb(44 93 118)",
+        blue_btn_hover_color: "rgb(60 133 171)",
+      },
+    },
   },
   plugins: [],
 };

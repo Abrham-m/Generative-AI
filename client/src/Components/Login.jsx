@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import axios from "axios";
+import { toast, ToastContainer, Zoom } from "react-toastify";
 
 const LoginForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const data = { email, password };
+    try {
+      const response = await axios.post(
+        "http://localhost:4040/api/auth/login",
+        data,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
+          },
+        }
+      );
+      console.log(response.data.message);
+    } catch (error) {
+      toast.error(error["message"]);
+      console.log(error["message"]);
+    }
+  };
+
   return (
     <div className="min-h-screen flex justify-center items-center w-full bg-gray-950">
       <div className="bg-gray-800 shadow-md rounded-lg px-8 py-6 max-w-md">
@@ -18,8 +45,10 @@ const LoginForm = () => {
             <input
               type="text"
               placeholder="Enter your Email"
-              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-700"
+              required
             />
           </div>
 
@@ -30,8 +59,10 @@ const LoginForm = () => {
             <input
               type="password"
               placeholder="Enter your Password"
-              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-700"
+              required
             />
             <a
               href="reference"
@@ -64,6 +95,7 @@ const LoginForm = () => {
           </div>
           <button
             type="submit"
+            onClick={handleLogin}
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Login
@@ -89,6 +121,17 @@ const LoginForm = () => {
             GitHub
           </button>
         </div>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          theme="light"
+          closeOnClick={true}
+          pauseOnHover={true}
+          draggable={false}
+          transition={Zoom}
+          limit={1}
+        />
       </div>
     </div>
   );

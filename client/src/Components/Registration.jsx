@@ -35,9 +35,11 @@ const Registration = () => {
                 "GET,PUT,POST,DELETE,PATCH,OPTIONS",
               "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
             },
+            withCredentials: true,
           }
         );
         toast.success(response.data.message);
+        console.log(response);
         setTimeout(() => {
           navigate("/login");
         }, 2500);

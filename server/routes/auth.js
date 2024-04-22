@@ -33,16 +33,16 @@ router.post("/login", async (req, res) => {
       return res.status(401).send({ message: "Invalid Email or Password" });
 
     let accessToken = token(user._id);
-
+    
     res.cookie("jwt", accessToken, {
       maxAge: 3600,
       httpOnly: true,
       path: "/",
-      // secure: true,
     });
+    res.cookie('test',"hello");
     res.status(200).send({ message: "Logged in successfully" });
   } catch (error) {
-    res.status(500).send(`Internal server error ${error}`);
+    res.status(500).send({ message: `Internal server error ${error}` });
   }
 });
 
@@ -51,7 +51,7 @@ const validate = (data) => {
     email: joi.string().email().required().label("Email"),
     password: joi.string().required().label("Password"),
   });
-  return schema.validate(data); 
+  return schema.validate(data);
 };
 
 router.get("/check", (req, res) => {
