@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { CgMail } from "react-icons/cg";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -36,13 +36,13 @@ const AboutUs = () => {
           </div>
           <div className="flex my-4">
             <a href="gmail" className="mx-4">
-              <CgMail size={28} />
+              <CgMail size={32} color="red"/>
             </a>
             <a href="twitter" className="mx-4">
-              <FaTwitter size={28} />
+              <FaXTwitter size={28}  color="black"/>
             </a>
             <a href="facebook" className="mx-4">
-              <FaFacebook size={28} />
+              <FaFacebook size={28} color="blue"/>
             </a>
           </div>
         </div>
