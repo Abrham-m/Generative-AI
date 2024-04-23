@@ -4,7 +4,8 @@ import { LinearGradient } from "react-text-gradients";
 import { Link } from "react-router-dom";
 import { Fade, Slide } from "react-awesome-reveal";
 import Nav from "./Nav";
-
+import Service from "./Service";
+import AboutUs from "./AboutUs";
 const Home = () => {
   return (
     <>
@@ -41,6 +42,8 @@ const Home = () => {
           </Slide>
         </div>
       </div>
+      <Service/>
+      <AboutUs/>
     </>
   );
 };
