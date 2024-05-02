@@ -1,43 +1,36 @@
-# Generative AI Text Creation
+# Generative AI Content Creation
 
-This repository contains code for a generative AI model that is capable of creating text based on a given input. The model uses deep learning techniques to generate text that is coherent and semantically relevant.
+This repository contains a generative AI system that is used for the creation of text. It consists of two main folders:
+- `client`: This folder contains the frontend application developed using React.
+- `server`: This folder contains the backend server developed using Node.js.
 
 ## Installation
 
-To install the necessary dependencies, run the following command:
+### Client
+1. Navigate to the `client` folder
+2. Run `npm install` to install the necessary dependencies
 
-```bash
-pip install -r requirements.txt
-```
+### Server
+1. Navigate to the `server` folder
+2. Run `npm install` to install the necessary dependencies
 
 ## Usage
 
-To use the generative AI model for text creation, run the following command:
-
-```bash
-python generate_text.py --input "input_text"
-```
-
-Replace "input_text" with the text you want to use as input for the generative AI model. The model will generate text based on this input.
-
-## Training
-
-If you want to train the generative AI model on a custom dataset, you can do so by running the following command:
-
-```bash
-python train_model.py --dataset_path "path_to_dataset"
-```
-
-Replace "path_to_dataset" with the path to your custom dataset. The model will be trained on this dataset to generate text.
+To start the frontend application, navigate to the `client` folder and run `npm start`. 
+To start the backend server, navigate to the `server` folder and run `npm start`.
 
 ## Contributing
 
-If you would like to contribute to this project, please fork the repository and submit a pull request with your changes. We welcome any contributions that improve the performance of the generative AI model.
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature`)
+3. Make changes and commit them (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature`)
+5. Create a new Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the `LICENSE` file for details. 
 
-## Acknowledgements
+## Contact
 
-We would like to thank the developers of the TensorFlow and Keras libraries for their contributions to the field of deep learning, which made this project possible.
+For any inquiries or feedback, please contact [insert email address here].
