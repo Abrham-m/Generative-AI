@@ -17,10 +17,9 @@ const LoginForm = () => {
         "http://localhost:4040/api/auth/login",
         data,
         {
+          withCredentials: true,
           headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-            "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
+            "Content-Type": "application/json",
           },
         }
       );
@@ -141,3 +140,9 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
+ // headers: {
+//             "Access-Control-Allow-Origin": "*",
+//             "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+//             "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
+//           },
