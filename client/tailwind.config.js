@@ -10,6 +10,7 @@ module.exports = {
         blue_btn_hover_color: "rgb(60 133 171)",
         service_color: "#00235c",
         service_box_color: "rgb(50 70 102)",
+        user_bg_color: "#415a77",
       },
     },
   },

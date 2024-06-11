@@ -39,7 +39,6 @@ router.post("/login", async (req, res) => {
       httpOnly: true,
       path: "/",
     });
-    res.cookie('test',"hello");
     res.status(200).send({ message: "Logged in successfully" });
   } catch (error) {
     res.status(500).send({ message: `Internal server error ${error}` });
@@ -55,13 +54,13 @@ const validate = (data) => {
 };
 
 router.get("/check", (req, res) => {
-  if (req.Cookies["jwt"]) {
+  if (req.cookies["jwt"]) {
     let token = req.cookies.jwt;
     jwt.verify(token, "1234567", (err, user) => {
       if (err) {
         res.status(401).send("Not Authorized");
       }
-      res.status(200).send("Welcome Aboard dear user");
+      res.status(200).send(`Welcome Aboard dear user`);
     });
   } else {
     res.status(402).send("Please Login to access this");

@@ -7,9 +7,8 @@ router.post("/", async (req, res) => {
   try {
     // validation of the user information
     const { error } = validate(req.body);
-
     if (error) {
-      return res.status(400).send({ message: error.details[0].message });
+      return res.status(400).send({ message: `${error.details[0].message }`});
     }
     // check is the user already exists
     const user = await User.findOne({ email: req.body.email });

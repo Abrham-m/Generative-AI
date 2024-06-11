@@ -5,30 +5,30 @@ import "./index.css";
 import LoginForm from "./Components/Login";
 import Registration from "./Components/Registration";
 import Home from "./Components/Home";
+import User from "./Components/User";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>,
+    element: <Home />,
   },
   {
     path: "/register",
-    element: <Registration/>,
+    element: <Registration />,
   },
   {
     path: "/login",
-    element: <LoginForm/>,
+    element: <LoginForm />,
   },
   {
-    path: "/main",
-    element: <div><h1>Welcome dear user</h1></div>,
+    path: "/user",
+    element: <User />,
   },
-  
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/> 
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

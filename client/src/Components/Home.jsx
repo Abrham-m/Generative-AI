@@ -6,10 +6,12 @@ import { Fade, Slide } from "react-awesome-reveal";
 import Nav from "./Nav";
 import Service from "./Service";
 import AboutUs from "./AboutUs";
+
 const Home = () => {
   return (
     <>
       <Nav />
+      <user />
       <div
         className="bg-cover bg-center min-h-screen min-w-screen flex flex-row-reverse items-center"
         style={{ backgroundImage: `url(${AI})` }}
@@ -42,8 +44,8 @@ const Home = () => {
           </Slide>
         </div>
       </div>
-      <Service/>
-      <AboutUs/>
+      <Service />
+      <AboutUs />
     </>
   );
 };
