@@ -28,16 +28,7 @@ const Registration = () => {
       try {
         const response = await axios.post(
           "http://localhost:4040/api/users",
-          data,
-          {
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods":
-                "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-              "Access-Control-Allow-Headers": "X-Requested-With, Content-Type",
-            },
-            withCredentials: true,
-          }
+          data
         );
         toast.success(response.data.message);
         console.log(response);
@@ -53,7 +44,7 @@ const Registration = () => {
 
   return (
     <>
-    <Nav/>
+      <Nav />
       <div className="min-h-screen min-w-screen bg-gray-950 flex justify-center items-center px-5 py-5">
         <div className="bg-gray-800 text-gray-500 rounded-3xl shadow-xl w-full max-w-2xl overflow-hidden">
           <form className="w-full py-10 px-5" id="form" onSubmit={handleSubmit}>
