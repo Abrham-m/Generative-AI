@@ -39,7 +39,7 @@ router.post("/login", async (req, res) => {
       httpOnly: true,
       path: "/",
     });
-    res.status(200).send({ message: "Logged in successfully" + accessToken });
+    res.status(200).send({ message: "Logged in successfully" + accessToken , firstName: user.firstName, lastName: user.lastName });
   } catch (error) {
     res.status(500).send({ message: `Internal server error ${error}` });
   }
