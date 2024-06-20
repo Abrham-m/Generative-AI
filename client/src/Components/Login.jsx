@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import axios from "axios";
 import { toast, ToastContainer, Zoom } from "react-toastify";
 import Nav from "./Nav"
+
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,7 +28,11 @@ const LoginForm = () => {
           },
         }
       );
-      console.log(response.data.message);
+      console.log(response.data.message); // to be deleted
+
+      if(response.data.ok){
+        navigate("/user");
+      }
     } catch (error) {
       toast.error(error["message"]);
       console.log(error["message"]);
