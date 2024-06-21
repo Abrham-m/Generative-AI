@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import {useLocation} from "react-router-dom"
 import axios from 'axios'
 import Nav from "./Nav";
 const User = () => {
+
+  const location = useLocation();
+  const {firstName,lastName} = location.state || 'Nobody N.';
+
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
 
