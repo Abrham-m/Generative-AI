@@ -18,7 +18,8 @@
     "react-text-gradients": "^1.0.2",
     "react-toastify": "^10.0.5",
     "typewriter-effect": "^2.21.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "ws": "^8.17.1"
   },
   "scripts": {
     "start": "react-scripts start",
