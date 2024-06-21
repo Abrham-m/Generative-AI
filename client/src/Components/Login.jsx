@@ -36,7 +36,14 @@ const LoginForm = () => {
       console.log(response.data.message); // to be deleted
 
       if(response.data.ok){
-        navigate("/user");
+        setFirstName(response.data.firstName);
+        setLastName(response.data.lastName);
+        navigate("/user",{
+          state: {
+            firstName: response.data.firstName,
+            lastName: response.data.lastName,
+          },
+        });
       }
     } catch (error) {
       toast.error(error["message"]);
