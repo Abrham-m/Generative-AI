@@ -9,6 +9,11 @@ import Nav from "./Nav"
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  /**
+   * State variables to store the user's first and last name.
+   * These values are used to display the user's name in user component after successful login.
+   */
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
