@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import {useLocation} from "react-router-dom"
-import axios from 'axios'
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 import Nav from "./Nav";
 const User = () => {
-
   const location = useLocation();
-  const {firstName,lastName} = location.state || 'Nobody N.';
+  const state = location.state || {};
+  const { firstName = "Nobody", lastName = "Nobody" } = state;
 
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
@@ -13,22 +13,25 @@ const User = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     const response =  axios.post('',prompt,{
-      headers: {
-         'Content-Type': 'application/json',
-         'Authorization': `Bearer `
-       }
-     })
-     setResponse(response.data);
-     console.log(response)
+      const response = axios.post("", prompt, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer `,
+        },
+      });
+      setResponse(response.data);
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <>
-      <div className="min-h-screen bg-user_bg_color flex items-center justify-center">
-        <Nav />
+      <div className="min-h-screen bg-user_bg_color flex flex-col items-center justify-center">
+        <Nav className="relative" />
+        <div className="absolute top-[70px] right-0 bg-gray-100 opacity-70">
+          {firstName + " " + (lastName ? lastName.substring(0, 1) + "." : "")}
+        </div>
         <div
           className="flex flex-col w-full items-center justify-center "
           id="box"
@@ -46,7 +49,10 @@ const User = () => {
               }}
             ></textarea>
 
-            <button onClick={handleSubmit} className="text-3xl p-3 rounded-md ring-2 ring-blue-500 text-white hover:bg-pink-600 transition-colors duration-300">
+            <button
+              onClick={handleSubmit}
+              className="text-3xl p-3 rounded-md ring-2 ring-blue-500 text-white hover:bg-pink-600 transition-colors duration-300"
+            >
               Sent
             </button>
           </div>
