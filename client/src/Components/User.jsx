@@ -11,6 +11,8 @@ const User = () => {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
 
+  let responseField = document.getElementById("responseField");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -21,6 +23,7 @@ const User = () => {
         },
       });
       setResponse(response.data);
+      responseField.innerHTML = `<div>${response}</div>`;            
       console.log(response);
     } catch (error) {
       console.log(error);
