@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Nav from "./Nav";
+import { FaRegUserCircle } from "react-icons/fa";
 const User = () => {
   const location = useLocation();
   const state = location.state || {};
