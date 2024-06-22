@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Nav from "./Nav";
-import { FaRegUserCircle } from "react-icons/fa";
 const User = () => {
   const location = useLocation();
   const state = location.state || {};
@@ -30,7 +29,8 @@ const User = () => {
     <>
       <div className="min-h-screen bg-user_bg_color flex flex-col items-center justify-center">
         <Nav className="relative" />
-        <div className="absolute top-[70px] right-0 bg-gray-100 opacity-70">
+        <div className="flex absolute top-[70px] right-2 text-2xl bg-gray-100 opacity-70 rounded-lg pr-1">
+          <FaRegUserCircle className="my-1 mx-1" size={25} />{" "}
           {firstName + " " + (lastName ? lastName.substring(0, 1) + "." : "")}
         </div>
         <div
