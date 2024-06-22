@@ -11,6 +11,7 @@ module.exports = {
         service_color: "#00235c",
         service_box_color: "rgb(50 70 102)",
         user_bg_color: "#415a77",
+        user_btn_color: "#4a9d9c",
       },
     },
   },

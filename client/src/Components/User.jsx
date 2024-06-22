@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Nav from "./Nav";
+import { FaRegUserCircle } from "react-icons/fa";
 const User = () => {
   const location = useLocation();
   const state = location.state || {};
@@ -39,7 +40,7 @@ const User = () => {
         >
           <div className="flex flex-row items-center justify-center space-x-4 w-full">
             <textarea
-              className="w-5/12 h-16 p-2 border-2 border-pink-500 text-2xl rounded-lg resize-none overflow-auto shadow-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-5/12 h-16 p-2 border-2 border-green-700 text-2xl rounded-lg resize-none overflow-auto shadow-md focus:outline-none focus:ring-2 focus:ring-green-700"
               rows={1}
               style={{ resize: "none", overflow: "auto" }}
               onChange={(e) => {
@@ -52,7 +53,7 @@ const User = () => {
 
             <button
               onClick={handleSubmit}
-              className="text-3xl p-3 rounded-md ring-2 ring-blue-500 text-white hover:bg-pink-600 transition-colors duration-300"
+              className="text-3xl py-3 px-5 rounded-md bg-user_btn_color text-white hover:ring-2 hover:ring-blue-600 transition-colors duration-300"
             >
               Sent
             </button>
