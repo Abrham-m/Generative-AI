@@ -58,7 +58,9 @@ const User = () => {
               Sent
             </button>
           </div>
-          <div>{response}</div>
+          <div className="" id="responseField">
+          
+          </div>
         </div>
       </div>
     </>
