@@ -4,6 +4,10 @@ import axios from "axios";
 import Nav from "./Nav";
 import { FaRegUserCircle } from "react-icons/fa";
 const User = () => {
+  /**
+   * Extracts the firstName and lastName from the location state object, or sets default values if they are not present.
+   * This code is likely used to display the user's name in the UI.
+   */
   const location = useLocation();
   const state = location.state || {};
   const { firstName = "Nobody", lastName = "Nobody" } = state;
