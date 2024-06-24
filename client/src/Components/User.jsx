@@ -23,7 +23,7 @@ const User = () => {
         },
       });
       setResponse(response.data);
-      responseField.innerHTML = `<div>${response}</div>`;            
+      responseField.innerHTML = `<div>${response}</div>`;
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -61,9 +61,7 @@ const User = () => {
               Sent
             </button>
           </div>
-          <div className="" id="responseField">
-          
-          </div>
+          <div className="" id="responseField"></div>
         </div>
       </div>
     </>
