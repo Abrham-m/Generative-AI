@@ -33,7 +33,7 @@ const User = () => {
     <>
       <div className="min-h-screen bg-user_bg_color flex flex-col items-center justify-center">
         <Nav className="relative" />
-        <div className="flex absolute top-[70px] right-2 text-2xl bg-gray-100 opacity-70 rounded-lg pr-1">
+        <div className="flex absolute top-[80px] right-2 text-2xl bg-gray-100 opacity-70 rounded-lg pr-1">
           <FaRegUserCircle className="my-1 mx-1" size={25} />{" "}
           {firstName + " " + (lastName ? lastName.substring(0, 1) + "." : "")}
         </div>
