@@ -4,6 +4,7 @@ const cors = require("cors");
 const connection = require("./DB");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
+const chatRoute = require("./routes/chatMe");
 const cookieParser = require("cookie-parser");
 
 // Database Connection
@@ -28,6 +29,9 @@ app.use(cookieParser());
 // routes
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/chat", chatRoute);
+
+
 
 app.get("/", (req, res) => {
   res.cookie("sweet", "I am sweet cookie").send("home route reached");
