@@ -9,7 +9,7 @@ const token = (payload) => {
     {
       data: payload,
     },
-    process.env.JWTPRIVATEKEY || /*"1234567"*/,
+    /* process.env.JWTPRIVATEKEY || */ "1234567",
     { expiresIn: "1h" }
   );
 };
