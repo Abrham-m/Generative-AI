@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const dotenv = require("dotenv");
 const connection = require("./DB");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const chatRoute = require("./routes/chatMe");
 const cookieParser = require("cookie-parser");
+
+dotenv.config();
 
 // Database Connection
 connection();
