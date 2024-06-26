@@ -37,14 +37,11 @@ app.use("/api/chat", chatRoute);
 
 
 app.get("/", (req, res) => {
-  res.cookie("sweet", "I am sweet cookie").send("home route reached");
+res.json({variable: process.env.PORT})
 });
 
-app.get("/get", (req, res) => {
-  res.send(`cookie : ${JSON.stringify(req.cookies["sweet"])}`);
-});
 
-const port = process.env.PORT || 4040;
+const port = process.env.PORT;
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
