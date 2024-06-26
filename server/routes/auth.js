@@ -9,7 +9,7 @@ const token = (payload) => {
     {
       data: payload,
     },
-    /* process.env.JWTPRIVATEKEY || */ "1234567",
+     process.env.JWTPRIVATEKEY ,
     { expiresIn: "1h" }
   );
 };
@@ -39,7 +39,7 @@ router.post("/login", async (req, res) => {
       httpOnly: true,
       path: "/",
     });
-    res.status(200).send({ message: "Logged in successfully" + accessToken , firstName: user.firstName, lastName: user.lastName ,ok:true});
+    res.status(200).send({ message: "Logged in successfully", firstName: user.firstName, lastName: user.lastName ,ok:true});
   } catch (error) {
     res.status(500).send({ message: `Internal server error ${error}` });
   }
