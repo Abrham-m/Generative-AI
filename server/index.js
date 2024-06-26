@@ -12,6 +12,7 @@ dotenv.config();
 
 // Database Connection
 connection();
+ 
 
 // middlewares
 app.use(express.json());
@@ -34,14 +35,7 @@ app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/chat", chatRoute);
 
-
-
-app.get("/", (req, res) => {
-res.json({variable: process.env.PORT})
-});
-
-
-const port = process.env.PORT;
+const port = process.env.PORT || 4040;
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
